@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{64356C1B-EA1F-44BD-B305-E6F84BABF41B}") = "Financial Calculator", "Financial Calculator.vcxproj", "{CCCA79FF-57AF-4C7F-8775-84C9C35D65D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCCA79FF-57AF-4C7F-8775-84C9C35D65D6}.Debug|x64.ActiveCfg = Debug|x64
+		{CCCA79FF-57AF-4C7F-8775-84C9C35D65D6}.Debug|x64.Build.0 = Debug|x64
+		{CCCA79FF-57AF-4C7F-8775-84C9C35D65D6}.Release|x64.ActiveCfg = Release|x64
+		{CCCA79FF-57AF-4C7F-8775-84C9C35D65D6}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
