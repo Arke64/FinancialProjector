@@ -91,6 +91,12 @@ class entry {
 		void advance();
 };
 
+istream& operator>>(istream& stream, entry& e) {
+	stream >> e.amount >> e.occurs >> e.advance_amount >> e.advance_type;
+
+	return stream;
+}
+
 void entry::advance() {
 	switch (this->advance_type) {
 		case 'd': this->occurs.add_day(this->advance_amount); break;
@@ -103,31 +109,18 @@ void entry::advance() {
 vector<entry> entries;
 
 int main(int argc, char** argv) {
-	double balance, last_balance;
-	double pay;
+	double days, balance, last_balance;
 	date today;
-	int next_pay_day;
-	int days;
 
 	ifstream input("Input.txt");
 
-	input >> days >> balance >> pay >> next_pay_day >> today;
-
-	entry e;
-	e.amount = pay;
-	e.occurs = today;
-	e.occurs.day = next_pay_day;
-	e.advance_amount = 2;
-	e.advance_type = 'w';
-	entries.push_back(e);
-
-	while (input >> e.amount >> e.occurs >> e.advance_amount >> e.advance_type) {
-		e.amount *= -1;
-	
-		entries.push_back(e);
-	}
+	input >> days >> balance >> today;
 
 	last_balance = balance;
+
+	entry e;
+	while (input >> e)
+		entries.push_back(e);
 
 	ofstream output("Output.csv");
 	output << today << "," << balance << endl;
