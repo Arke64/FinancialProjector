@@ -83,6 +83,10 @@ bool date::is_leap_year() {
 	return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
+word date::days_in_year() {
+	return 365 + (this->is_leap_year() ? 1 : 0);
+}
+
 void date::add_days(sword count) {
 	this->day += count;
 

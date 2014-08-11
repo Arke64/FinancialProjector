@@ -16,6 +16,7 @@ class date {
 		word get_days_in_month(word month);
 
 		bool is_leap_year();
+		word days_in_year();
 
 		void add_days(sword count);
 		void add_months(sword count);
