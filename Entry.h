@@ -2,15 +2,17 @@
 
 #include "Date.h"
 
+#include <Utilities/Common.h>
+
 #include <iostream>
 
 class entry {
 	public:
 		date occurs;
-		double amount;
+		float64 amount;
 
-		int advance_amount;
-		char advance_type;
+		sword advance_amount;
+		int8 advance_type;
 
 		void advance();
 };

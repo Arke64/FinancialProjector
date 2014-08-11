@@ -8,7 +8,7 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	double days, balance, last_balance;
+	float64 days, balance, last_balance;
 	date today;
 
 	ifstream input("Input.txt");
@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 
 	last_balance = balance;
 
-	for (int i = 0; i < days; i++) {
+	for (word i = 0; i < days; i++) {
 		for (auto& j : entries) {
 			if (j.occurs == today) {
 				balance += j.amount;

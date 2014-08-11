@@ -1,21 +1,23 @@
 #pragma once
 
+#include <Utilities/Common.h>
+
 #include <iostream>
 
 class date {
-	static int days_in_month[12];
+	static word days_in_month[12];
 
 	public:
-		int day;
-		int month;
-		int year;
+		word day;
+		word month;
+		word year;
 
-		int get_days_in_month();
-		int get_days_in_month(int month);
+		word get_days_in_month();
+		word get_days_in_month(word month);
 
-		void add_days(int count);
-		void add_months(int count);
-		void add_years(int count);
+		void add_days(sword count);
+		void add_months(sword count);
+		void add_years(sword count);
 
 		bool operator==(const date& rhs);
 };
