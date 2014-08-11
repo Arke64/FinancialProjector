@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
 			last_balance = balance;
 		}
 
-		today.add_day(1);
+		today.add_days(1);
 	}
 
 	return 1;

@@ -33,11 +33,11 @@ int date::get_days_in_month(int month) {
 	return date::days_in_month[month - 1];
 }
 
-void date::add_day(int count) {
+void date::add_days(int count) {
 	this->day += count;
 
-	auto days = this->get_days_in_month();
-	if (this->day > days) {
+	int days;
+	if (this->day > (days = this->get_days_in_month())) {
 		this->day -= days;
 
 		if (++this->month > 12) {
@@ -47,15 +47,15 @@ void date::add_day(int count) {
 	}
 }
 
-void date::add_month(int count) {
+void date::add_months(int count) {
 	this->month += count;
 
-	if (this->month > 12) {
-		this->month = 1;
+	while (this->month > 12) {
+		this->month -= 12;
 		this->year++;
 	}
 }
 
-void date::add_year(int count) {
+void date::add_years(int count) {
 	this->year += count;
 }

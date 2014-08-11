@@ -13,9 +13,9 @@ class date {
 		int get_days_in_month();
 		int get_days_in_month(int month);
 
-		void add_day(int count);
-		void add_month(int count);
-		void add_year(int count);
+		void add_days(int count);
+		void add_months(int count);
+		void add_years(int count);
 
 		bool operator==(const date& rhs);
 };
