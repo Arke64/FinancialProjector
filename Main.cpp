@@ -8,12 +8,11 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	word days;
 	float64 balance, last_balance;
-	date today;
+	date today, end;
 
 	ifstream input("Input.txt");
-	input >> days >> balance >> today;
+	input >> balance >> today >> end;
 
 	vector<entry> entries;
 	entry e;
@@ -25,7 +24,7 @@ int main(int argc, char** argv) {
 
 	last_balance = balance;
 
-	for (word i = 0; i < days; i++) {
+	while (today < end) {
 		for (auto& j : entries) {
 			if (j.occurs == today) {
 				balance += j.amount;

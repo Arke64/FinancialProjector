@@ -20,6 +20,11 @@ class date {
 		void add_years(sword count);
 
 		bool operator==(const date& rhs);
+		bool operator!=(const date& rhs);
+		bool operator<(const date& rhs);
+		bool operator>(const date& rhs);
+		bool operator<=(const date& rhs);
+		bool operator>=(const date& rhs);
 };
 
 std::istream& operator>>(std::istream& stream, date& d);
