@@ -73,10 +73,14 @@ word date::get_days_in_month() {
 }
 
 word date::get_days_in_month(word month) {
-	if (month == 2 && (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)))
+	if (month == 2 && this->is_leap_year())
 		return 29;
 
 	return date::days_in_month[month - 1];
+}
+
+bool date::is_leap_year() {
+	return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
 void date::add_days(sword count) {
