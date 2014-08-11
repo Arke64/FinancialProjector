@@ -8,11 +8,26 @@
 
 class entry {
 	public:
+		enum class types {
+			income,
+			bill,
+			loan
+		};
+
+		enum class recurs_types {
+			day,
+			week,
+			month,
+			year
+		};
+
 		date occurs;
 		float64 amount;
 
-		sword advance_amount;
-		int8 advance_type;
+		sword recurs_count;
+		recurs_types recurs_type;
+
+		types type;
 
 		void advance();
 };

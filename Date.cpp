@@ -36,7 +36,7 @@ word date::get_days_in_month(word month) {
 void date::add_days(sword count) {
 	this->day += count;
 
-	int days;
+	word days;
 	if (this->day > (days = this->get_days_in_month())) {
 		this->day -= days;
 

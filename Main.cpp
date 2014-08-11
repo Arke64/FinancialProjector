@@ -8,7 +8,8 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	float64 days, balance, last_balance;
+	word days;
+	float64 balance, last_balance;
 	date today;
 
 	ifstream input("Input.txt");
