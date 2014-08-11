@@ -5,6 +5,12 @@
     <ProjectGuid>{CCCA79FF-57AF-4C7F-8775-84C9C35D65D6}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="Date.cpp" />
+    <ClCompile Include="Entry.cpp" />
     <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Date.h" />
+    <ClInclude Include="Entry.h" />
   </ItemGroup>
 </Project>
