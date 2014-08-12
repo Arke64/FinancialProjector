@@ -22,6 +22,7 @@ class entry {
 		};
 
 		date occurs;
+		date expires;
 		float64 amount;
 
 		sword recurs_count;

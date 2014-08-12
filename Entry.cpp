@@ -7,7 +7,7 @@ using namespace std;
 istream& operator>>(istream& stream, entry& e) {
 	int8 type, recurs_type;
 
-	stream >> type >> e.amount >> e.occurs >> e.recurs_count >> recurs_type;
+	stream >> type >> e.amount >> e.occurs >> e.recurs_count >> recurs_type >> e.expires;
 
 	switch (type) {
 		case 'i': e.type = entry::types::income; break;

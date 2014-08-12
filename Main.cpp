@@ -8,11 +8,11 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	float64 balance, last_balance;
+	float64 balance, last_balance, interest_on_balance;
 	date today, end;
 
 	ifstream input("Input.txt");
-	input >> balance >> today >> end;
+	input >> balance >> interest_on_balance >> today >> end;
 
 	vector<entry> entries;
 	entry e;
@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 
 	while (today < end) {
 		for (auto& e : entries) {
-			if (e.occurs == today) {
+			if (e.occurs == today && e.expires > today) {
 				switch (e.type) {
 					case entry::types::income: balance += e.amount; break;
 					case entry::types::bill: balance -= e.amount; break;
@@ -54,6 +54,9 @@ int main(int argc, char** argv) {
 			}
 		}
 		
+		if (today.day == 1)
+			balance *= 1 + (interest_on_balance / 12);
+
 		if (last_balance != balance) {
 			output << today << "," << balance << endl;
 
