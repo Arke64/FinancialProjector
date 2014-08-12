@@ -27,6 +27,9 @@ class entry {
 		sword recurs_count;
 		recurs_types recurs_type;
 
+		float64 balance;
+		float64 apr;
+
 		types type;
 
 		void advance();

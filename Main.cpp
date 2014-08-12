@@ -25,14 +25,35 @@ int main(int argc, char** argv) {
 	last_balance = balance;
 
 	while (today < end) {
-		for (auto& j : entries) {
-			if (j.occurs == today) {
-				balance += j.amount;
+		for (auto& e : entries) {
+			if (e.occurs == today) {
+				switch (e.type) {
+					case entry::types::income: balance += e.amount; break;
+					case entry::types::bill: balance -= e.amount; break;
+					case entry::types::loan:
+						if (e.balance == 0)
+							continue;
 
-				j.advance();
+						float64 interest_owed = e.balance * (e.apr / 12);
+						float64 towards_principal = e.amount - interest_owed;
+
+						if (e.balance < towards_principal) {
+							towards_principal = e.balance;
+							e.balance = 0;
+						}
+						else {
+							e.balance -= towards_principal;
+						}
+
+						balance -= interest_owed + towards_principal;
+
+						break;
+				}
+
+				e.advance();
 			}
 		}
-
+		
 		if (last_balance != balance) {
 			output << today << "," << balance << endl;
 

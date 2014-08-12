@@ -12,7 +12,12 @@ istream& operator>>(istream& stream, entry& e) {
 	switch (type) {
 		case 'i': e.type = entry::types::income; break;
 		case 'b': e.type = entry::types::bill; break;
-		case 'l': e.type = entry::types::loan; break;
+		case 'l': 
+			e.type = entry::types::loan; 
+
+			stream >> e.balance >> e.apr;
+		
+			break;
 	}
 
 	switch (recurs_type) {
@@ -22,8 +27,7 @@ istream& operator>>(istream& stream, entry& e) {
 		case 'y': e.recurs_type = entry::recurs_types::year; break;
 	}
 
-	if (e.type != entry::types::income)
-		e.amount *= -1;
+	//this->expired = false;
 
 	return stream;
 }

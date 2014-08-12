@@ -68,6 +68,35 @@ bool date::operator>=(const date& rhs) {
 	return !(*this < rhs);
 }
 
+sword date::operator-(const date& rhs) {
+	sword days = 0;
+	auto right = rhs;
+
+	while (*this < right) {
+		days--;
+
+		this->add_days(1);
+	}
+
+	while (*this > right) {
+		days++;
+
+		right.add_days(1);
+	}
+
+	return days;
+}
+
+date::date() : date(0, 0, 0) {
+
+}
+
+date::date(word day, word month, word year) {
+	this->day = day;
+	this->month = month;
+	this->year = year;
+}
+
 word date::days_in_month(word month) {
 	return date::month_day_counts[month - 1];
 }

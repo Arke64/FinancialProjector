@@ -8,6 +8,9 @@ class date {
 	static word month_day_counts[12];
 
 	public:
+		date();
+		date(word day, word month, word year);
+
 		word day;
 		word month;
 		word year;
@@ -33,6 +36,8 @@ class date {
 		bool operator>(const date& rhs);
 		bool operator<=(const date& rhs);
 		bool operator>=(const date& rhs);
+
+		sword operator-(const date& rhs);
 };
 
 std::istream& operator>>(std::istream& stream, date& d);
