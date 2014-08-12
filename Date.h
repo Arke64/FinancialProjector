@@ -5,15 +5,20 @@
 #include <iostream>
 
 class date {
-	static word days_in_month[12];
+	static word month_day_counts[12];
 
 	public:
 		word day;
 		word month;
 		word year;
 
-		word get_days_in_month();
-		word get_days_in_month(word month);
+		static word days_in_month(word month);
+		static word days_in_month(word month, word year);
+
+		static bool is_leap_year(word year);
+		static word days_in_year(word year);
+
+		word days_in_month();
 
 		bool is_leap_year();
 		word days_in_year();

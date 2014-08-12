@@ -4,7 +4,7 @@
 
 using namespace std;
 
-word date::days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+word date::month_day_counts[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 istream& operator>>(istream& stream, date& d) {
 	stream >> d.day >> d.month >> d.year;
@@ -68,30 +68,42 @@ bool date::operator>=(const date& rhs) {
 	return !(*this < rhs);
 }
 
-word date::get_days_in_month() {
-	return this->get_days_in_month(this->month);
+word date::days_in_month(word month) {
+	return date::month_day_counts[month - 1];
 }
 
-word date::get_days_in_month(word month) {
-	if (month == 2 && this->is_leap_year())
+word date::days_in_month(word month, word year) {
+	if (month == 2 && date::is_leap_year(year))
 		return 29;
 
-	return date::days_in_month[month - 1];
+	return date::month_day_counts[month - 1];
 }
 
-bool date::is_leap_year() {
+bool date::is_leap_year(word year) {
 	return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
+word date::days_in_year(word year) {
+	return 365 + (date::is_leap_year(year) ? 1 : 0);
+}
+
+word date::days_in_month() {
+	return date::days_in_month(this->month, this->year);
+}
+
+bool date::is_leap_year() {
+	return date::is_leap_year(this->year);
+}
+
 word date::days_in_year() {
-	return 365 + (this->is_leap_year() ? 1 : 0);
+	return date::days_in_year(year);
 }
 
 void date::add_days(sword count) {
 	this->day += count;
 
 	word days;
-	if (this->day > (days = this->get_days_in_month())) {
+	if (this->day > (days = this->days_in_month())) {
 		this->day -= days;
 
 		if (++this->month > 12) {
