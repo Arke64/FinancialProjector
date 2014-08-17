@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(CONFIG_PATH)\VC Executable.props" />
-  <PropertyGroup Label="Globals">
-    <ProjectGuid>{CCCA79FF-57AF-4C7F-8775-84C9C35D65D6}</ProjectGuid>
-  </PropertyGroup>
-  <ItemGroup>
-    <ClCompile Include="Date.cpp" />
-    <ClCompile Include="Entry.cpp" />
-    <ClCompile Include="Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Date.h" />
-    <ClInclude Include="Entry.h" />
-  </ItemGroup>
+
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="$(CONFIG_PATH)\VC Console.props" />
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{CCCA79FF-57AF-4C7F-8775-84C9C35D65D6}</ProjectGuid>
+	</PropertyGroup>
+	<ItemGroup>
+		<ClCompile Include="Date.cpp" />
+		<ClCompile Include="Entry.cpp" />
+		<ClCompile Include="Main.cpp" />
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="Date.h" />
+		<ClInclude Include="Entry.h" />
+	</ItemGroup>
 </Project>
