@@ -1,3 +1,3 @@
-Financial-Calculator
-====================
-Does some financial calculations.
+FinancialProjector
+==================
+Does some financial projections.
