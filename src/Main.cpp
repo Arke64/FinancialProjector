@@ -1,6 +1,8 @@
 #include "Date.h"
 #include "Entry.h"
 
+#include <ArkeIndustries.CPPUtilities\Common.h>
+
 #include <iostream>
 #include <fstream>
 #include <vector>
