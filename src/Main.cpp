@@ -15,9 +15,9 @@ int main(int argc, char** argv) {
 	input >> balance >> interest_on_balance >> today >> end;
 
 	vector<entry> entries;
-	entry e;
-	while (input >> e)
-		entries.push_back(e);
+	entry parsed;
+	while (input >> parsed)
+		entries.push_back(parsed);
 
 	ofstream output("Output.csv");
 	output << today << "," << balance << endl;
