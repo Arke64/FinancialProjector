@@ -1,8 +1,6 @@
 #include "Date.h"
 #include "Entry.h"
 
-#include <ArkeIndustries.CPPUtilities\Common.h>
-
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -10,7 +8,7 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	float64 balance, last_balance, interest_on_balance;
+	double balance, last_balance, interest_on_balance;
 	date today, end;
 
 	ifstream input("Input.txt");
@@ -36,8 +34,8 @@ int main(int argc, char** argv) {
 						if (e.balance == 0)
 							continue;
 
-						float64 interest_owed = e.balance * (e.apr / 12);
-						float64 towards_principal = e.amount - interest_owed;
+						double interest_owed = e.balance * (e.apr / 12);
+						double towards_principal = e.amount - interest_owed;
 
 						if (e.balance < towards_principal) {
 							towards_principal = e.balance;
@@ -55,7 +53,7 @@ int main(int argc, char** argv) {
 				e.advance();
 			}
 		}
-		
+
 		if (today.day == 1)
 			balance *= 1 + (interest_on_balance / 12);
 

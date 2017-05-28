@@ -4,7 +4,7 @@
 
 using namespace std;
 
-word date::month_day_counts[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+unsigned int date::month_day_counts[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 istream& operator>>(istream& stream, date& d) {
 	stream >> d.day >> d.month >> d.year;
@@ -68,8 +68,8 @@ bool date::operator>=(const date& rhs) {
 	return !(*this < rhs);
 }
 
-sword date::operator-(const date& rhs) {
-	sword days = 0;
+int date::operator-(const date& rhs) {
+	int days = 0;
 	auto right = rhs;
 
 	while (*this < right) {
@@ -91,32 +91,32 @@ date::date() : date(0, 0, 0) {
 
 }
 
-date::date(word day, word month, word year) {
+date::date(unsigned int day, unsigned int month, unsigned int year) {
 	this->day = day;
 	this->month = month;
 	this->year = year;
 }
 
-word date::days_in_month(word month) {
+unsigned int date::days_in_month(unsigned int month) {
 	return date::month_day_counts[month - 1];
 }
 
-word date::days_in_month(word month, word year) {
+unsigned int date::days_in_month(unsigned int month, unsigned int year) {
 	if (month == 2 && date::is_leap_year(year))
 		return 29;
 
 	return date::month_day_counts[month - 1];
 }
 
-bool date::is_leap_year(word year) {
+bool date::is_leap_year(unsigned int year) {
 	return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
-word date::days_in_year(word year) {
+unsigned int date::days_in_year(unsigned int year) {
 	return 365 + (date::is_leap_year(year) ? 1 : 0);
 }
 
-word date::days_in_month() {
+unsigned int date::days_in_month() {
 	return date::days_in_month(this->month, this->year);
 }
 
@@ -124,14 +124,14 @@ bool date::is_leap_year() {
 	return date::is_leap_year(this->year);
 }
 
-word date::days_in_year() {
+unsigned int date::days_in_year() {
 	return date::days_in_year(year);
 }
 
-void date::add_days(sword count) {
+void date::add_days(int count) {
 	this->day += count;
 
-	word days;
+	unsigned int days;
 	if (this->day > (days = this->days_in_month())) {
 		this->day -= days;
 
@@ -142,7 +142,7 @@ void date::add_days(sword count) {
 	}
 }
 
-void date::add_months(sword count) {
+void date::add_months(int count) {
 	this->month += count;
 
 	while (this->month > 12) {
@@ -151,6 +151,6 @@ void date::add_months(sword count) {
 	}
 }
 
-void date::add_years(sword count) {
+void date::add_years(int count) {
 	this->year += count;
 }

@@ -1,34 +1,32 @@
 #pragma once
 
-#include <ArkeIndustries.CPPUtilities/Common.h>
-
 #include <iostream>
 
 class date {
-	static word month_day_counts[12];
+	static unsigned int month_day_counts[12];
 
 	public:
 		date();
-		date(word day, word month, word year);
+		date(unsigned int day, unsigned int month, unsigned int year);
 
-		word day;
-		word month;
-		word year;
+		unsigned int day;
+		unsigned int month;
+		unsigned int year;
 
-		static word days_in_month(word month);
-		static word days_in_month(word month, word year);
+		static unsigned int days_in_month(unsigned int month);
+		static unsigned int days_in_month(unsigned int month, unsigned int year);
 
-		static bool is_leap_year(word year);
-		static word days_in_year(word year);
+		static bool is_leap_year(unsigned int year);
+		static unsigned int days_in_year(unsigned int year);
 
-		word days_in_month();
+		unsigned int days_in_month();
 
 		bool is_leap_year();
-		word days_in_year();
+		unsigned int days_in_year();
 
-		void add_days(sword count);
-		void add_months(sword count);
-		void add_years(sword count);
+		void add_days(int count);
+		void add_months(int count);
+		void add_years(int count);
 
 		bool operator==(const date& rhs);
 		bool operator!=(const date& rhs);
@@ -37,7 +35,7 @@ class date {
 		bool operator<=(const date& rhs);
 		bool operator>=(const date& rhs);
 
-		sword operator-(const date& rhs);
+		int operator-(const date& rhs);
 };
 
 std::istream& operator>>(std::istream& stream, date& d);

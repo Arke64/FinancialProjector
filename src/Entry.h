@@ -2,8 +2,6 @@
 
 #include "Date.h"
 
-#include <ArkeIndustries.CPPUtilities/Common.h>
-
 #include <iostream>
 
 class entry {
@@ -23,13 +21,13 @@ class entry {
 
 		date occurs;
 		date expires;
-		float64 amount;
+		double amount;
 
-		sword recurs_count;
+		int recurs_count;
 		recurs_types recurs_type;
 
-		float64 balance;
-		float64 apr;
+		double balance;
+		double apr;
 
 		types type;
 

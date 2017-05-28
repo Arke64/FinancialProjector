@@ -5,18 +5,18 @@
 using namespace std;
 
 istream& operator>>(istream& stream, entry& e) {
-	int8 type, recurs_type;
+	char type, recurs_type;
 
 	stream >> type >> e.amount >> e.occurs >> e.recurs_count >> recurs_type >> e.expires;
 
 	switch (type) {
 		case 'i': e.type = entry::types::income; break;
 		case 'b': e.type = entry::types::bill; break;
-		case 'l': 
-			e.type = entry::types::loan; 
+		case 'l':
+			e.type = entry::types::loan;
 
 			stream >> e.balance >> e.apr;
-		
+
 			break;
 	}
 
